@@ -1,0 +1,131 @@
+/* Propiedades universales*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Titulo de la pagina 
+text-aling:center , para centrar el texto
+position: relative, para mantenerse en la misma posicion sin importar el tamaño de la pagina
+width: 80% , para hacerlo responsive
+margin: 50px auto, para centrar el h1 en la pagina*/
+h1{
+    text-align: center;
+    position: relative;
+    width: 80%;
+    margin: 50px auto;
+}
+
+/* Color de fondo de la pagina*/
+body{
+    background-color: #ecf4fb;
+}
+
+/* El h1:: before es para crear manualmente las lineas negras que aparecen a los lados del titulo
+content:"", sirve para crear un texto vacio de por medio
+display: block, hace que el comportamiento del contenedor sea como un bloque
+width: 100%, para ocupar todo el ancho del contenedor
+heigh: 2px, le da el alto a las lineas
+position: absolute, para mantener las lineas estaticas y que ningun contenido aparezca sobre el
+backgroud-color: black, para darle el color a la linea
+top:50%, para posicionarlo mejor
+z-index: -1, para que la linea se muestre por detras del titulo, cambiar este valor por positivo hará que la linea se vea por encima*/
+h1::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    background-color: black;
+    top: 50%;
+    z-index: -1;
+}
+
+/* Propiedades de fondo del titulo*/
+h1 span{
+    background-color:#ecf4fb;
+    padding: 0 15px;
+}
+
+/* Caracteristicas del contenedor de las fotos
+width: 80% tamaño del contenedor con respecto a la pagina
+margin: 50px auto 50px, esto para mantener le mismo margen a los lados pero arriba y abajo se mantenga centrado
+display: grid, acomoda el contendio de arriba hacia abajo
+grid-template-columns: repeat(auto-fit,minmax(240px,1fr)), es una propiedad que permite ajustar una cantidad indeterminada de contenidos por 
+columnas ajustandole su tamaño y posicion con respecto al contenedor
+gap: 30px, separa cada imagen*/
+.img-gallery{
+    width: 80%;
+    margin: 50px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 30px;
+}
+
+/*Propiedades de las imagenes individualmente*/
+.img-gallery img{
+    width: 100%;
+    cursor: pointer;
+    transition: 1s;
+}
+
+/*Cambios al pasarle el mouse por encima*/
+.img-gallery img:hover{
+    transform: scale(1.2);
+    
+}
+
+/*Contenedor para ampliar la imagen al darle click
+width: 100%;
+height: 100vh;
+background-color: rgba(0, 0,0, 0.9);
+position: fixed;
+top: 0;
+left: 0;
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 99;*/
+.ful-img{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0,0, 0.9);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+/*Propiedad de la X cuando se muestra la imagen completa*/
+.ful-img span{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/*Tamaño de la imagen resposive*/
+.ful-img img{
+    width: 90%;
+    max-width: 600px;
+}
+
+/*clase media para cambiar ciertas cosas al momento de ajustar el tamaño de la pantalla segun un max-width*/
+@media screen and (max-width:400px){
+    h1{
+        text-decoration: underline;
+    }
+    h1::before{
+        display: none;
+    }
+    h1 span{
+        padding: 0;
+    }
+}
