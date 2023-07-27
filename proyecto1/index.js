@@ -83,5 +83,5 @@ boton_ro.addEventListener('click', function(){
 boton_si.addEventListener('click', function(){
     const link = document.getElementsByTagName('a')
     color_si.innerHTML = link
-    link[0].setAttribute('href', 'https://chat.openai.com/')
+    link[0].setAttribute('href', 'https://classroom.google.com/w/NTUyNjMwMjI3NTg0/t/all')
 })
