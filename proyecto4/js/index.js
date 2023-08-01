@@ -1,56 +1,51 @@
-
-const input = document.getElementById('ingresar-tarea')
-const boton = document.querySelector('button')
-const listaDeTarea = document.getElementById('lista-de-tareas')
 const imageModal = document.getElementById("imageModal")
+const taskList = document.getElementById("list")
+const taskinput = document.getElementById("name")
 
-function agregarTarea(){
-    if(input.value){
-        //Crear tarea
-        let tareaNueva = document.createElement('div')
-        tareaNueva.classList.add('tarea')
-
-        //Texto ingresado por el usuario
-        let texto = document.createElement('img')
-        texto.src = "./img/" + input.value + ".jpg"
-        tareaNueva.appendChild(texto)
-
-        //Crear y agregar contenedor de iconos
-        let iconos = document.createElement('div')
-        iconos.classList.add('iconos')
-        tareaNueva.appendChild(iconos)
-
-        //Iconos
-        let completar = document.createElement('i')
-        completar.classList.add('bi','bi-check-circle-fill','icono-completar')
-        completar.addEventListener('click', completarTarea)
-
-        let eliminar = document.createElement('i')
-        eliminar.classList.add('bi', 'bi-trash3-fill', 'icono-eliminar')
-        eliminar.addEventListener('click', eliminarTarea)
-
-        iconos.append(completar, eliminar)
-
-
-        //Agregar tarea nueva a la lista
-        listaDeTarea.appendChild(tareaNueva)
-    }else{
-        alert('Por favor ingresa una tarea')
+function addTask() {
+    if (!taskinput.value || taskinput.value.replaceAll(" ", "") == "") {
+        alert("Input a valid")
+        return
     }
+
+    let container =  document.createElement("div")
+    container.classList.add("task")
+
+    let image = document.createElement("img")
+    image.src = "./images/" + taskinput.value + ".jpeg"
+    image.onclick = function() {
+        displayTask(image)
+    }
+
+    let buttons = document.createElement("div")
+    buttons.classList.add("buttons")
+
+    let eliminar = document.createElement('i')
+    eliminar.classList.add('bi', 'bi-trash3-fill', 'icono-eliminar')
+    eliminar.onclick = function() {
+        deleteTask(container)
+    }
+
+    let completar = document.createElement('i')
+    completar.classList.add('bi','bi-check-circle-fill','icono-completar')
+    completar.onclick = function() {
+        completeTask(container)
+    }
+
+    container.appendChild(image)
+    buttons.append(completar, eliminar)
+    container.appendChild(buttons)
+
+    taskList.appendChild(container)
+    taskinput.value = ""
 }
 
-function completarTarea(e){
+function deleteTask(element) {
+    element.remove()
+}
 
-
-    let tarea = e.target.parentNode.parentNode
-    tarea.classList.toggle('completada')
-    
-}  
-
-
-function eliminarTarea(e){
-    let = tarea = e.target.parentNode.parentNode
-    tarea.remove()
+function completeTask(element) {
+    element.classList.toggle("selected")
 }
 
 function displayTask(element) {
@@ -62,5 +57,3 @@ function displayTask(element) {
 function hideModal() {
     imageModal.classList.remove("show")
 }
-
-boton.addEventListener('click', agregarTarea)
