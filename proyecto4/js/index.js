@@ -2,6 +2,7 @@
 const input = document.getElementById('ingresar-tarea')
 const boton = document.querySelector('button')
 const listaDeTarea = document.getElementById('lista-de-tareas')
+const imageModal = document.getElementById("imageModal")
 
 function agregarTarea(){
     if(input.value){
@@ -50,6 +51,16 @@ function completarTarea(e){
 function eliminarTarea(e){
     let = tarea = e.target.parentNode.parentNode
     tarea.remove()
+}
+
+function displayTask(element) {
+    const img = imageModal.getElementsByTagName("img")[0]
+    img.src = element.src
+    imageModal.classList.add("show")
+}
+
+function hideModal() {
+    imageModal.classList.remove("show")
 }
 
 boton.addEventListener('click', agregarTarea)
