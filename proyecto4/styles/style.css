@@ -133,3 +133,24 @@ img{
     width: 300px;
     height: auto;
 }
+
+
+#imageModal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: #0000007f;
+    z-index: 2;
+    display: none;
+}
+
+#imageModal > img {
+    min-width: 90vmin;
+    max-height: 90vmin;
+}
+
+#imageModal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
