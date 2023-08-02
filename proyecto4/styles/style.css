@@ -1,69 +1,69 @@
-body{
+body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0%;
     min-height: 100vh;
+    margin: 0px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
+    background-color: #929292;
+    /* background-attachment: fixed; */
     /* background: url(imagenes/fondo.jpg) no-repeat center center/ cover; */
 }
 
-/*contenedor*/
-
-.contenedor{
-    width: 800px;
-    min-height: 500px;
-    padding: 40px;
-    border-radius: 30px;
-    background-color: #404040;
-    /* display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center; */
+main {
+    min-width: 500px;
+    padding: 2em;
+    border-radius: 2em;
+    background-color: #d5abff ;
+    font-size: x-large;
+    color: #383838;
+    border: 1px solid #fff;
 }
 
-
-h1{
-    font-size: 50px;
-    font-weight: bold;
+#top {
+    z-index: 1;
+    position: sticky;
+    top: 0px;
+    background-color: #d5abff;
+    padding-top: 1em;
+    padding-bottom: 2em;
 }
 
+#inputs {
+    display: flex;
+    justify-content: space-evenly;
+}
 
-input{
-    /* background-color: grey;
-    height: 50px;
-    font-size: 25px;
-    margin: 20px; */
-    min-width: 40%;
-    padding: 10px;
+input {
     border: none;
-    border-radius: 10px;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    max-width: 100%;
 }
 
-#list{
-    width: 80%;
-    margin-top: 20px;
+#list {
+    position: sticky;
+    top: 200px;
 }
 
-
-.tarea{
-    color: white;
-    background-color: #043659;
+.task {
+    color: black;
+    background-color: #D7BBF5;
     border-radius: 10px;
     height: auto;
     max-width: 400px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 1em;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    overflow-wrap: anywhere;
+    /* overflow-wrap: anywhere; */
 }
 
 img{
     width: 50%;
-    margin: 50% auto 50%;
+    margin: 5px auto 5px;
     display: grid;
     border-radius: 6px;
     grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
@@ -83,40 +83,30 @@ img{
     width: 2em;
 }
 
-.tarea.completada{
-    text-decoration: line-through;
-    background-color: black;
-    border: none;
+.buttons .eliminar {
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+}
+.buttons .completar {
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 100%;
 }
 
-.tarea p{
-    max-width: 350px;
+.buttons i:hover {
+    background-color: #ffffff4e;
+    transition: background-color 0.5s;
 }
 
-
-i{
-    margin:5px ;
-    padding: 10px;
-    cursor: pointer;
-}
-
-
-.icono-completar{
-    color: rgb(0,255,0);
-}
-.icono-completada{
-    color: rgb(255,0,0);
-}
-
-.icono-eliminar{
+.task.selected {
     color: white;
+    background-color: #9376E0;
 }
 
-.icono-completar:hover,
-.icono-eliminar:hover{
-    background-color: rgba(255,255,255,0.523);
+.task.selected .buttons .complete {
+    filter: hue-rotate(227deg);
 }
-
 
 .task > img {
     height: 100%;
@@ -129,7 +119,7 @@ i{
 #imageModal {
     position: fixed;
     width: 100vw;
-    height: 100vh;
+    height: 170%;
     background-color: #0000007f;
     z-index: 2;
     display: none;
