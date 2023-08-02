@@ -61,7 +61,27 @@ input{
     overflow-wrap: anywhere;
 }
 
-/* Tarea completada*/
+img{
+    width: 50%;
+    margin: 50% auto 50%;
+    display: grid;
+    border-radius: 6px;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 30px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.buttons i {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+}
 
 .tarea.completada{
     text-decoration: line-through;
@@ -69,20 +89,17 @@ input{
     border: none;
 }
 
-/* img .completada{
-
-} */
-
 .tarea p{
     max-width: 350px;
 }
-/* iconos */
+
 
 i{
     margin:5px ;
     padding: 10px;
     cursor: pointer;
 }
+
 
 .icono-completar{
     color: rgb(0,255,0);
@@ -100,11 +117,14 @@ i{
     background-color: rgba(255,255,255,0.523);
 }
 
-img{
-    width: 300px;
-    height: auto;
+
+.task > img {
+    height: 100%;
 }
 
+.task.selected > img {
+    opacity: 0.1;
+}
 
 #imageModal {
     position: fixed;
