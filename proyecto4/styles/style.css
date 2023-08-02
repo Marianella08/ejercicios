@@ -48,19 +48,17 @@ input{
 
 
 .tarea{
-    width: 100%;
-    min-height: 70px;
-    font-size: 25px;
-    padding: 10px;
-    margin-top: 10px;
     color: white;
     background-color: #043659;
-    border: 2px solid black;
     border-radius: 10px;
+    height: auto;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 10px;
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    text-align: center;
+    overflow-wrap: anywhere;
 }
 
 /* Tarea completada*/
