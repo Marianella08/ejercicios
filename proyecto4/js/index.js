@@ -12,7 +12,7 @@ function addTask() {
     container.classList.add("task")
 
     let image = document.createElement("img")
-    image.src = "./images/" + taskinput.value + ".jpeg"
+    image.src = "./img/" + taskinput.value + ".jpg"
     image.onclick = function() {
         displayTask(image)
     }
